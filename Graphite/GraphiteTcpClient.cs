@@ -17,7 +17,14 @@ namespace Graphite
             Port = port;
             KeyPrefix = keyPrefix;
 
-            _tcpClient = new TcpClient(Hostname, Port);
+			try
+			{
+				_tcpClient = new TcpClient(Hostname, Port);
+			}
+			catch
+			{
+				// Supress all exceptions for now.
+			}
         }
 
         public void Send(string path, int value, DateTime timeStamp)
