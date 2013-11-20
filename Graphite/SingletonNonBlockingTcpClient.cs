@@ -21,10 +21,10 @@ namespace Graphite
 		{
 			get
 			{
-				if (_logger == null)
-				{
-					throw new InvalidOperationException("Client not created - use CreateLogger(...)");
-				}
+				//Can't throw exceptions, this class needs to be completely silent.
+				//returning null isn't too much better, but hopefully the client will realize what's up.
+				//if (_logger == null)
+					//throw new InvalidOperationException("Client not created - use CreateLogger(...)");
 
 				return _logger;
 			}
